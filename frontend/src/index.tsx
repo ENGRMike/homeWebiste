@@ -3,17 +3,18 @@ import ReactDOM from "react-dom";
 import CssBaseLine from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./theme";
-import App from "./App";
+import App from "./Components/App/App";
 
 import { BrowserRouter as Router } from "react-router-dom";
 
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
 import { rootReducer } from "./redux";
+import thunk from 'redux-thunk';
 
 import reportWebVitals from "./reportWebVitals";
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
