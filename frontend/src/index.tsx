@@ -5,8 +5,6 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./theme";
 import App from "./Components/App/App";
 
-import { BrowserRouter as Router } from "react-router-dom";
-
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
 import { rootReducer } from "./redux";
@@ -20,9 +18,7 @@ ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider theme={theme}>
       <CssBaseLine />
-      <Router>
-        <App />
-      </Router>
+      <App />
     </ThemeProvider>
   </Provider>,
   document.querySelector("#root")
